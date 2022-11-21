@@ -1,0 +1,35 @@
+#########
+# Environment Variables
+#########
+# Lood in current directory for executables
+export PATH=$PATH:.
+#########
+# Aliases
+#########
+alias cdd="cd .."
+alias las="ls -A"
+alias desk="cd ~/Desktop/"
+alias lsl="ls -l"
+alias lsal="ls -Al"
+alias targz=targzfunc
+alias untar=untarfunc
+alias cselab="ssh -p 222 HOSKINSN@129.252.130.255"
+# Trash alias instead of rm
+alias trash="mv -t ~/.TRASH"
+alias rmtrash="rm -rf ~/.TRASH/*"
+#########
+# Functions
+#########
+# Function to tar -zcvf a directory
+function targzfunc() {
+	VAR=$1;
+	VAR=${VAR%/};
+	tar -zcvf "$VAR.tar.gz" ./"$VAR"
+}
+# Function to tar -xvf a .tar.gz file
+function untarfunc() {
+	VAR=$1;
+	VAR=${VAR};
+	tar -xvf ./"$VAR"
+}
+
